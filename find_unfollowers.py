@@ -1,19 +1,21 @@
 import instaloader
 import getpass
 
+loader = instaloader.Instaloader()
+
 username = input("Username: ")
 password = getpass.getpass("Password: ")
 try:
-    instaloader.Instaloader().login(username, password)
+    loader.login(username, password)
 except instaloader.TwoFactorAuthRequiredException:
     two_factor_code = input("Enter the 2FA code: ")
-    instaloader.Instaloader().two_factor_login(two_factor_code)
+    loader.two_factor_login(two_factor_code)
 # except instaloader.WrongPasswordException:
 #     print("Wrong password")
 #     password = input("Password: ")
 #     L.login(username, password)
 
-profile = instaloader.Profile.from_username(L.context, username)
+profile = instaloader.Profile.from_username(loader.context, username)
 
 print ("loading followers...")
 followers = profile.get_followers()
