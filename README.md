@@ -1,2 +1,9 @@
-# ig-unfollowers
-im just sick of keeping track who unfollows me on instagram
+# IG Unfollowers Tracker
+
+To get started:
+```
+git clone https://github.com/tehhanyi/ig-unfollowers
+```
+```python
+python3 find_unfollowers.py
+```
