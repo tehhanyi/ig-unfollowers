@@ -1,4 +1,5 @@
 import instaloader
+import os
 from firefox_session import loginFromSession
 
 def find_unfollowers(loader, username):
@@ -14,7 +15,8 @@ def find_unfollowers(loader, username):
     followings_set = {following.username for following in followings}
     print("Total followee:", len(followings_set))
 
-    if username == "tehhanyi":
+    if os.path.exists('influencers.txt'):
+        print('loading list of influencers...')
         with open('influencers.txt', 'r') as file:
             influencers = {line.strip() for line in file}
     else:
